@@ -1,0 +1,137 @@
+body{
+    text-align: center;
+    
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-inline: auto;
+    max-width: 400px;
+}
+select, input, button{
+    padding: 7px;
+}
+.duration-container{
+   display: flex;
+   align-items: center;
+   
+}
+#duration{
+    flex-grow: 2;
+}
+button{
+    cursor: pointer;
+}
+
+.toasts-container{
+    position: absolute;
+    top: 1rem;
+    left: 0rem;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    overflow: hidden;
+    padding: 0 1;
+}
+.toast{
+    position: relative;
+    padding: 0.5rem;
+    background-color: rgb(255, 42, 244);
+    color: azure;
+    /* gap: ; */
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+    animation: fromLeft 0.1s ease-in;
+}
+
+.toasts-container.right .toast  {
+    animation: fromRight 0.1s ease-in;
+}
+
+.toast.go-left{
+    animation: toleft 0.1s ease-in forwards;
+}
+
+.toasts-container.right .toast.go-right{
+    animation: toright 0.1s ease-in forwards;
+}
+
+@keyframes fromleft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100%{
+        transform:  translateX(0);
+    }
+}
+
+
+@keyframes toleft {
+    0% {
+        transform: translateX(0%);
+    }
+    100%{
+        transform:  translateX(-100%);
+    }
+}
+
+@keyframes fromright {
+    0% {
+        transform: translateX(100%);
+    }
+    100%{
+        transform:  translateX(0%);
+    }
+}
+
+
+@keyframes toright {
+    0% {
+        transform: translateX(0);
+    }
+    100%{
+        transform:  translateX(100%);
+    }
+}
+.toast.success{
+    background-color: #009600;
+}
+.toast.warning{
+    background-color: #ec6b03;
+}
+.toast.error{
+    background-color: #ff0000;
+}
+.toast.info{
+    background-color: #4e4e4e;
+}
+
+.toast.success::before{
+    content: '✓ ';
+}
+
+.toast.error::before {
+    content: '✗ ';
+}
+
+.toast.warning::before {
+    content: '⚠ ';
+}
+
+.toast.info::before {
+    content: 'ⓘ ';
+}
+
+.toast span {
+    cursor: pointer;
+}
+
+.toasts-container.right{
+    left: auto;
+    right: 0rem;
+} 
+.toasts-container.bottom{
+    top: auto;
+    bottom: 1rem;
+}
